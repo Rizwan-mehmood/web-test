@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web Test</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div id="header">
+        <ul>
+            <li class="active">Garage Echo</li>
+            <li>Room Echo</li>
+            <li>Large Hall Echo</li>
+            <li>Acoustic Echo</li>
+            <li>Tunnel Echo</li>
+        </ul>
+    </div>
+    <div id="container">
+        <div id="black_box">
+            <h2>Feel the difference</h2>
+            <div id="switch_content">
+                <span style="color: white;">Before</span>
+                <div class="toggle-switch" id="mySwitch">
+                    <div class="toggle-thumb"></div>
+                </div>
+                <span style="color: #999999;">After</span>
+            </div>
+            <section class="wave-container">
+                <div class="wave-wrapper">
+                    <svg class="wave-svg" viewBox="0 0 178 164" xmlns="http://www.w3.org/2000/svg">
+                        <defs>
+                            <linearGradient id="waveGradient" x1="0" y1="0" x2="0" y2="1"
+                                gradientUnits="objectBoundingBox">
+                                <stop offset="0%" stop-color="#00FF8E" stop-opacity="0" />
+                                <stop offset="50%" stop-color="#00FF8E" stop-opacity="1" />
+                                <stop offset="100%" stop-color="#00FF8E" stop-opacity="0" />
+                            </linearGradient>
+                        </defs>
+                        <g class="wave-paths">
+                            <path
+                                d="M176.381 36.6587C161.83 48.2661 152.832 64.2955 152.832 81.9999C152.832 99.7044 161.83 115.734 176.381 127.341" />
+                            <path
+                                d="M169.457 130.715C153.821 118.245 144.15 101.023 144.15 82.0001C144.15 62.9777 153.821 45.7553 169.457 33.2856" />
+                            <path
+                                d="M162.16 134.832C145.219 121.302 134.745 102.626 134.745 82.0005C134.745 61.375 145.219 42.6994 162.16 29.1685" />
+                            <path
+                                d="M153.686 139.089C135.337 124.486 123.986 104.3 123.986 81.9998C123.986 59.7 135.337 39.5134 153.686 24.9102" />
+                            <path
+                                d="M144.186 143.464C124.426 127.744 112.201 106.01 112.201 82.0004C112.201 57.9908 124.426 36.2569 144.186 20.5371" />
+                            <path
+                                d="M134.451 148.556C113.162 131.488 100.006 107.968 100.006 81.9995C100.006 56.0308 113.162 32.511 134.451 15.4429" />
+                            <path
+                                d="M125.422 155.116C101.935 136.408 87.4074 110.556 87.4074 82.0004C87.4074 53.4548 101.925 27.6117 125.397 8.90527" />
+                            <path
+                                d="M114.682 162.037C88.9771 141.556 73.0779 113.258 73.0779 82.0003C73.0779 50.7494 88.9701 22.4569 114.665 1.97656" />
+                            <path
+                                d="M94.9316 162.399C71.5425 140.84 57.3942 112.737 57.3942 81.9998C57.3942 51.2628 71.5425 23.1594 94.9316 1.60107" />
+                            <path
+                                d="M74.3926 162.399C53.2173 140.027 40.6619 112.182 40.6619 81.9998C40.6619 51.8174 53.2173 23.9723 74.3926 1.60107" />
+                            <path
+                                d="M51.5723 162.396C32.3621 139.369 21.1692 111.727 21.1692 82.0007C21.1692 52.2748 32.3622 24.6325 51.5723 1.60498" />
+                            <path
+                                d="M28.7227 162.399C11.1164 138.876 1.00124 111.38 1.00124 81.9998C1.00124 52.62 11.1165 25.1233 28.7227 1.60107" />
+                        </g>
+                    </svg>
+                </div>
+            </section>
+            <div id="player">
+                <div id="waveform-container">
+                    <canvas id="wave-bg"></canvas>
+                    <div id="played-wrapper">
+                        <canvas id="wave-played"></canvas>
+                    </div>
+                </div>
+                <audio id="audio" src="audio/audio.mp3"></audio>
+            </div>
+            <section class="wave-container wave-container--right">
+                <div class="wave-wrapper">
+                    <svg class="wave-svg" viewBox="0 0 178 164" xmlns="http://www.w3.org/2000/svg">
+                        <defs>
+                            <linearGradient id="waveGradient" x1="0" y1="0" x2="0" y2="1"
+                                gradientUnits="objectBoundingBox">
+                                <stop offset="0%" stop-color="#00FF8E" stop-opacity="0" />
+                                <stop offset="50%" stop-color="#00FF8E" stop-opacity="1" />
+                                <stop offset="100%" stop-color="#00FF8E" stop-opacity="0" />
+                            </linearGradient>
+                        </defs>
+                        <g class="wave-paths">
+                            <path
+                                d="M176.381 36.6587C161.83 48.2661 152.832 64.2955 152.832 81.9999C152.832 99.7044 161.83 115.734 176.381 127.341" />
+                            <path
+                                d="M169.457 130.715C153.821 118.245 144.15 101.023 144.15 82.0001C144.15 62.9777 153.821 45.7553 169.457 33.2856" />
+                            <path
+                                d="M162.16 134.832C145.219 121.302 134.745 102.626 134.745 82.0005C134.745 61.375 145.219 42.6994 162.16 29.1685" />
+                            <path
+                                d="M153.686 139.089C135.337 124.486 123.986 104.3 123.986 81.9998C123.986 59.7 135.337 39.5134 153.686 24.9102" />
+                            <path
+                                d="M144.186 143.464C124.426 127.744 112.201 106.01 112.201 82.0004C112.201 57.9908 124.426 36.2569 144.186 20.5371" />
+                            <path
+                                d="M134.451 148.556C113.162 131.488 100.006 107.968 100.006 81.9995C100.006 56.0308 113.162 32.511 134.451 15.4429" />
+                            <path
+                                d="M125.422 155.116C101.935 136.408 87.4074 110.556 87.4074 82.0004C87.4074 53.4548 101.925 27.6117 125.397 8.90527" />
+                            <path
+                                d="M114.682 162.037C88.9771 141.556 73.0779 113.258 73.0779 82.0003C73.0779 50.7494 88.9701 22.4569 114.665 1.97656" />
+                            <path
+                                d="M94.9316 162.399C71.5425 140.84 57.3942 112.737 57.3942 81.9998C57.3942 51.2628 71.5425 23.1594 94.9316 1.60107" />
+                            <path
+                                d="M74.3926 162.399C53.2173 140.027 40.6619 112.182 40.6619 81.9998C40.6619 51.8174 53.2173 23.9723 74.3926 1.60107" />
+                            <path
+                                d="M51.5723 162.396C32.3621 139.369 21.1692 111.727 21.1692 82.0007C21.1692 52.2748 32.3622 24.6325 51.5723 1.60498" />
+                            <path
+                                d="M28.7227 162.399C11.1164 138.876 1.00124 111.38 1.00124 81.9998C1.00124 52.62 11.1165 25.1233 28.7227 1.60107" />
+                        </g>
+                    </svg>
+                </div>
+            </section>
+            <div id="controls">
+                <img src="images/vector1.svg" alt="">
+                <img src="images/vector2.svg" alt="">
+                <img src="images/pause.png" alt="" id="pause">
+            </div>
+        </div>
+        <div class="img-wrapper">
+            <div class="img-inner">
+                <img src="images/img1.png" alt="" id="img1" class="img">
+                <img src="" alt="" id="img-temp" class="img temp-img">
+                <img src="images/img4.2.png" alt="" id="img2">
+            </div>
+        </div>
+        <div id="shadow_box"></div>
+    </div>
+</body>
+<script src="script.js"></script>
+
+</html>

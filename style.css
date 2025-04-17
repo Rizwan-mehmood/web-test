@@ -1,0 +1,368 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
+@font-face {
+    font-family: 'Product Sans';
+    src: url('fonts/product_sans_400.ttf') format('truetype'),
+        url('fonts/product_sans_700.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+body {
+    font-family: 'Product Sans', sans-serif;
+}
+
+#header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 100px;
+}
+
+ul {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0;
+    margin: 0;
+    width: 80%;
+}
+
+ul li {
+    list-style: none;
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 100%;
+    letter-spacing: 0%;
+    color: #A7A7A7;
+    transition: all 0.3s ease-out;
+    cursor: pointer;
+}
+
+ul li.active {
+    font-weight: 700;
+    color: #25744A;
+    transform: translateY(-20px);
+}
+
+#container {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#black_box {
+    position: absolute;
+    width: 1108px;
+    height: 423px;
+    top: 20px;
+    border-radius: 34px;
+    background-color: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(1px);
+    -webkit-backdrop-filter: blur(3px);
+    background-clip: padding-box;
+    z-index: 100;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+#black_box h2 {
+    color: white;
+    font-weight: 400;
+    font-size: 40px;
+    line-height: 100%;
+    letter-spacing: 0%;
+    margin-bottom: 20px;
+}
+
+#switch_content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+#switch_content span {
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 100%;
+    letter-spacing: 0%;
+}
+
+.img-wrapper {
+    position: relative;
+    top: 14px;
+    z-index: 99;
+    width: calc(1120px - 12px);
+    height: calc(435px - 12px);
+
+    padding: 6px;
+    /* creates the border effect */
+    border-radius: 40px;
+    background: linear-gradient(-45deg, #78A5F7 0%, #35DCB8 100%);
+    overflow: hidden;
+    box-sizing: content-box;
+
+}
+
+.img-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    border-radius: 34px;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.img {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 0;
+    /* no longer needed here */
+    transition: opacity 0.4s ease-in-out;
+}
+
+
+#img2 {
+    position: absolute;
+    z-index: 500;
+    width: 634px;
+    height: 423px;
+    display: none;
+}
+
+#shadow_box {
+    width: 1120px;
+    height: 435px;
+    position: absolute;
+    top: 14px;
+    border-radius: 40px;
+    background: linear-gradient(-45deg,
+            #E1704F 0%,
+            #CF617E 50%,
+            #6B84BC 100%);
+    filter: blur(25px);
+    -webkit-filter: blur(25px);
+}
+
+
+.toggle-switch {
+    width: 56px;
+    height: 23px;
+    background: linear-gradient(90deg,
+            #65B4E5 0%,
+            #00FF8E 100%);
+    border-radius: 12px;
+    position: relative;
+    flex-shrink: 0;
+    display: inline-block;
+    margin: 0 8px;
+}
+
+.toggle-thumb {
+    width: 17px;
+    height: 17px;
+    background-color: #fff;
+    border-radius: 50%;
+    position: absolute;
+    top: 3px;
+    left: 3px;
+    box-shadow:
+        inset 0 1px 3px 0 rgba(0, 0, 0, 0.25),
+        0 1px 2px 0 rgba(0, 0, 0, 0.25);
+    cursor: pointer;
+    transition: left 0.3s ease-out;
+}
+
+.toggle-switch.on .toggle-thumb {
+    left: 36px;
+}
+
+
+#player {
+    width: 686px;
+    height: 60px;
+    margin: 15px auto;
+    font-family: sans-serif;
+    user-select: none;
+    background: white;
+    border-radius: 80px;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#waveform-container {
+    position: relative;
+    width: 100%;
+    height: 60px;
+    cursor: pointer;
+    background: white;
+}
+
+canvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: block;
+}
+
+#played-wrapper {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 0;
+    overflow: hidden;
+}
+
+#played-wrapper,
+.img-wrapper img {
+    transition: all 0.3s ease-out;
+}
+
+.img-wrapper img {
+    transition: opacity 0.3s ease-out;
+}
+
+#controls {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 74px;
+    height: 74px;
+    border-radius: 50%;
+    background-color: white;
+    cursor: pointer;
+}
+
+#controls img {
+    position: absolute;
+}
+
+#pause {
+    width: 25px;
+    height: 30px;
+    display: none;
+}
+
+
+/* sizing via a single variable */
+:root {
+    --wave-width: 175px;
+}
+
+/* center the whole thing */
+.wave-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+    position: absolute;
+    left: 15px;
+    top: 105px;
+}
+
+.wave-wrapper {
+    display: inline-block;
+}
+
+/* make the SVG scale to the chosen width */
+.wave-svg {
+    width: var(--wave-width);
+    height: auto;
+    display: block;
+    opacity: 1;
+    transition: opacity 0.3s ease-out;
+}
+
+.wave-svg.wave-hidden {
+    opacity: 0;
+}
+
+/* common line styling & gradient */
+.wave-paths path {
+    fill: none;
+    stroke: url(#waveGradient);
+    stroke-width: 2;
+    stroke-linecap: round;
+}
+
+/* assign each “echo” its opacity */
+.wave-paths path:nth-child(1) {
+    opacity: 0.85;
+}
+
+.wave-paths path:nth-child(2) {
+    opacity: 0.78;
+}
+
+.wave-paths path:nth-child(3) {
+    opacity: 0.73;
+}
+
+.wave-paths path:nth-child(4) {
+    opacity: 0.67;
+}
+
+.wave-paths path:nth-child(5) {
+    opacity: 0.61;
+}
+
+.wave-paths path:nth-child(6) {
+    opacity: 0.55;
+}
+
+.wave-paths path:nth-child(7) {
+    opacity: 0.48;
+}
+
+.wave-paths path:nth-child(8) {
+    opacity: 0.48;
+}
+
+.wave-paths path:nth-child(9) {
+    opacity: 0.42;
+}
+
+.wave-paths path:nth-child(10) {
+    opacity: 0.36;
+}
+
+.wave-paths path:nth-child(11) {
+    opacity: 0.30;
+}
+
+.wave-paths path:nth-child(12) {
+    opacity: 0.24;
+}
+
+/* responsive overrides */
+@media (max-width: 768px) {
+    :root {
+        --wave-width: 150px;
+    }
+}
+
+@media (max-width: 480px) {
+    :root {
+        --wave-width: 120px;
+    }
+}
+
+.wave-container--right {
+    transform: rotate(180deg);
+    left: 77%;
+}
