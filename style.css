@@ -215,7 +215,9 @@ canvas {
     position: absolute;
     top: 0;
     left: 0;
+    width: 100%;
     display: block;
+    box-sizing: border-box;
 }
 
 #played-wrapper {
@@ -261,18 +263,22 @@ canvas {
 
 /* sizing via a single variable */
 :root {
-    --wave-width: 175px;
+    /* never smaller than 100px, never bigger than 175px, otherwise = 15% of vw */
+    --wave-width: clamp(100px, 15vw, 175px);
+    /* Top starts at 20px on large screens, up to 60px on the very smallest */
+    --wave-top: clamp(20px, 5vw, 60px);
 }
+
+
 
 /* center the whole thing */
 .wave-container {
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 2rem;
     position: absolute;
-    left: 15px;
-    top: 105px;
+    left: 4%;
+    top: 32%;
 }
 
 .wave-wrapper {
@@ -349,20 +355,122 @@ canvas {
     opacity: 0.24;
 }
 
-/* responsive overrides */
-@media (max-width: 768px) {
-    :root {
-        --wave-width: 150px;
-    }
-}
-
-@media (max-width: 480px) {
-    :root {
-        --wave-width: 120px;
-    }
-}
-
 .wave-container--right {
     transform: rotate(180deg);
-    left: 77%;
+    left: 80%;
+}
+
+@media (max-width: 1130px) {
+
+    .img-wrapper,
+    #shadow_box {
+        width: calc(100vw - 50px);
+        box-sizing: border-box;
+    }
+
+    #black_box {
+        width: calc(100vw - 62px);
+        box-sizing: border-box;
+        height: 411px;
+    }
+
+    #player {
+        width: calc(60vw - 10px);
+        max-width: 686px;
+        box-sizing: border-box;
+    }
+
+}
+
+@media (max-width: 1024px) {
+    #header ul {
+        width: 90%;
+    }
+
+    .wave-container {
+        top: 34%;
+        left: 3%;
+    }
+
+    .wave-container--right {
+        left: 81%;
+    }
+}
+
+@media (max-width: 860px) {
+    #header ul li {
+        font-size: 20px;
+    }
+
+    #black_box h2 {
+        font-size: 30px;
+        margin-bottom: 15px;
+    }
+
+    #switch_content>span {
+        font-size: 14px;
+    }
+
+    #player {
+        height: 40px;
+    }
+
+    #controls {
+        width: 60px;
+        height: 60px;
+    }
+
+    #black_box,
+    #shadow_box {
+        height: 350px;
+    }
+
+    .img-wrapper {
+        height: calc(374px - 12px);
+    }
+}
+
+@media (max-width: 750px) {
+    .wave-container {
+        top: 36%;
+    }
+}
+
+@media (max-width: 690px) {
+    .wave-container {
+        display: none !important;
+    }
+
+    #player {
+        width: calc(84vw - 10px);
+    }
+
+    #header ul {
+        width: 95%;
+    }
+
+    #header ul li {
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 560px) {
+    #header ul {
+        width: 98%;
+    }
+
+    #header ul li {
+        font-size: 13px;
+    }
+
+    #black_box {
+        width: calc(100vw - 12px);
+        height: 250px;
+    }
+
+    .img-wrapper,
+    #shadow_box {
+        width: 100%;
+        height: 262px;
+    }
 }
